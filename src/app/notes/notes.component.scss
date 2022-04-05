@@ -16,8 +16,15 @@
   &-title {
     font-size: 20px;
     font-weight: 600;
+    color: rgba($color: white, $alpha: 0.85);
   }
   &-content {
     margin-top: 7px;
+    color: rgba($color: white, $alpha: 0.85);
   }
+}
+.add-btn i {
+  color: rgba($color: white, $alpha: 0.85);
+  margin-right: 5px;
+  margin-left: -4px;
 }

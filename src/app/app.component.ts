@@ -56,7 +56,7 @@ import { RouterOutlet, UrlSegment } from '@angular/router';
                 opacity: 0,
               }),
               animate(
-                '250ms 100ms ease-out',
+                '250ms 50ms ease-out',
                 style({
                   opacity: 1,
                   transform: 'translateX(0)',
@@ -109,7 +109,7 @@ import { RouterOutlet, UrlSegment } from '@angular/router';
                 opacity: 0,
               }),
               animate(
-                '250ms 100ms ease-out',
+                '250ms 50ms ease-out',
                 style({
                   opacity: 1,
                   transform: 'translateX(0)',
