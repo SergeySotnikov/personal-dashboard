@@ -1,12 +1,7 @@
 <div class="notes-wrapper">
   <div class="container">
     <div class="notes-list">
-      <div class="note-card">
-        <h2 class="note-card-title">This is the note title!</h2>
-        <p class="note-card-content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iure.
-        </p>
-      </div>
+      <app-note-card [note]="note" *ngFor="let note of notes"></app-note-card>
     </div>
     <div class="btn-container btn-centered">
       <a routerLink="add" class="btn add-btn">

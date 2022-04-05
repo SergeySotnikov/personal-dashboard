@@ -2,29 +2,12 @@
   height: 100%;
   overflow-y: auto;
 }
-.note-card {
-  background-color: rgba($color: #000000, $alpha: 0.6);
-  color: rgba($color: white, $alpha: 0.85);
-  padding: 25px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.15s;
-  &:hover {
-    background-color: rgba($color: #000000, $alpha: 0.75);
-    backdrop-filter: blur(2px);
-  }
-  &-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: rgba($color: white, $alpha: 0.85);
-  }
-  &-content {
-    margin-top: 7px;
-    color: rgba($color: white, $alpha: 0.85);
-  }
-}
 .add-btn i {
   color: rgba($color: white, $alpha: 0.85);
   margin-right: 5px;
   margin-left: -4px;
+}
+app-note-card {
+  display: block;
+  margin-bottom: 15px;
 }

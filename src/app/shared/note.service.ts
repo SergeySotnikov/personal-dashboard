@@ -5,7 +5,11 @@ import { Note } from './note.model';
   providedIn: 'root',
 })
 export class NoteService {
-  notes: Note[] = [];
+  notes: Note[] = [
+    new Note('sdfdsf', 'sdfdsf'),
+    new Note('sdfdsf', 'sdfdsf'),
+    new Note('sdfdsf', 'sdfdsf'),
+  ];
 
   constructor() {}
 
