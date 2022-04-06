@@ -21,6 +21,9 @@ h2.is-bold {
   font-weight: bold;
   letter-spacing: -1px;
 }
+a {
+  text-decoration: none;
+}
 
 .container {
   max-width: 850px;
@@ -28,6 +31,7 @@ h2.is-bold {
 }
 .btn-container {
   display: flex;
+  gap: 12px;
   margin-top: 20px;
   &.btn-centered {
     justify-content: center;
@@ -63,11 +67,14 @@ h2.is-bold {
   background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.75);
   backdrop-filter: blur(2px);
 }
+
+.form-field {
+  margin-bottom: 20px;
+}
 .text-box,
 .textarea {
   display: block;
   width: 100%;
-  margin-bottom: 20px;
   font-family: "Inter", sans-serif;
   font-size: 18px;
   padding: 8px 10px;

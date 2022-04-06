@@ -5,38 +5,38 @@ import { Note } from './note.model';
   providedIn: 'root',
 })
 export class NoteService {
-  notes: Note[] = [
-    new Note('sdfdsf', 'sdfdsf'),
-    new Note('sdfdsf', 'sdfdsf'),
-    new Note('sdfdsf', 'sdfdsf'),
-  ];
-
-  constructor() {}
+  notes: Note[] = [];
+  note: Note = new Note('', '');
 
   getNotes() {
     return this.notes;
   }
 
-  getNote(id: string) {
-    return this.notes.find((note) => {
-      note.id === id;
+  getNote(id: string | null) {
+    this.notes.forEach((note) => {
+      if (note.id === id) {
+        this.note = note;
+      }
     });
+    return this.note;
   }
 
   addNote(note: Note) {
     this.notes.push(note);
   }
 
-  updateNote(id: string, updatedFields: Partial<Note>) {
+  updateNote(id: any, updatedFields: Partial<Note>) {
     let note = this.getNote(id);
     Object.assign(note!, updatedFields);
   }
 
-  deleteNote(id: string) {
+  deleteNote(id: string | undefined) {
     const noteIndex = this.notes.findIndex((note) => note.id === id);
     if (noteIndex === -1) {
       return;
     }
     this.notes.splice(noteIndex, 1);
   }
+
+  constructor() {}
 }
