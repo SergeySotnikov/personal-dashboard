@@ -5,4 +5,13 @@
   <p class="todo-text">
     {{ todo.text }}
   </p>
+
+  <div class="todo-item-actions" (click)="$event.stopPropagation()">
+    <div class="btn todo-item-action-btn" (click)="onEdit()">
+      <i class="material-icons">edit</i>
+    </div>
+    <div class="btn todo-item-action-btn" (click)="onDelete()">
+      <i class="material-icons">delete_forever</i>
+    </div>
+  </div>
 </div>

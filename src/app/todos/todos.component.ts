@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../shared/todo.model';
 import { TodoService } from '../shared/todo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todos',
@@ -10,7 +11,7 @@ import { TodoService } from '../shared/todo.service';
 export class TodosComponent implements OnInit {
   todos: Todo[] = [];
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService, private router: Router) {}
 
   ngOnInit(): void {
     this.todos = this.todoService.getTodos();
@@ -18,5 +19,12 @@ export class TodosComponent implements OnInit {
 
   toggleCompleted(todo: Todo) {
     this.todoService.updateTodo(todo.id, { completed: !todo.completed });
+  }
+
+  onEditClick(todo: Todo) {
+    this.router.navigateByUrl(`/todos/${todo.id}`);
+  }
+  onDeleteClick(todo: Todo) {
+    this.todoService.deleteTodo(todo.id);
   }
 }

@@ -1,3 +1,4 @@
+import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddNoteComponent } from './add-note/add-note.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'notes/add', component: AddNoteComponent },
   { path: 'notes/:id', component: EditNoteComponent },
   { path: 'todos/add', component: AddTodoComponent },
+  { path: 'todos/:id', component: EditTodoComponent },
 ];
 
 @NgModule({
