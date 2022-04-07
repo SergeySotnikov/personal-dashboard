@@ -5,7 +5,10 @@ import { Bookmark } from './bookmark.model';
   providedIn: 'root',
 })
 export class BookmarkService {
-  bookmarks: Bookmark[] = [];
+  bookmarks: Bookmark[] = [
+    new Bookmark('google', `https://www.google.com/`),
+    new Bookmark('WiKi', `https://www.wikipedia.com/`),
+  ];
   bookmark: Bookmark = new Bookmark('', '');
 
   constructor() {}

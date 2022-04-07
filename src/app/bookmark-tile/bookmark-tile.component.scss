@@ -35,4 +35,11 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+  .tile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+  }
 }
