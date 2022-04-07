@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TodoService {
-  todos: Todo[] = [new Todo('1sdfdsf'), new Todo('2sdf'), new Todo('3')];
+  todos: Todo[] = [];
   todo: Todo = new Todo('');
 
   constructor() {}

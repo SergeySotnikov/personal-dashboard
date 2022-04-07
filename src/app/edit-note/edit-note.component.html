@@ -15,7 +15,7 @@
         required
         minlength="3"
       />
-      <ng-container *ngIf="titleField.invalid">
+      <ng-container *ngIf="titleField.invalid && showValidationErrors">
         <p *ngIf="!titleField.value">Please enter a note title</p>
         <p *ngIf="titleField.errors?.['minlength']">
           Title must be at least 3 characters
@@ -36,7 +36,7 @@
 
       <button class="btn" type="button" (click)="onDeleteNote()">Delete</button>
       <button
-        [disabled]="titleField.errors?.['minlength']"
+        [disabled]="titleField.errors?.['minlength']&&showValidationErrors"
         type="submit"
         class="btn align-end"
       >

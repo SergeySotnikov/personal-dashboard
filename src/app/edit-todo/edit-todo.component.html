@@ -1,1 +1,34 @@
-<p>edit-todo works!</p>
+<div class="edit-todo-wrapper container has-blured-white-bg">
+  <h2 class="is-bold">Edit Todo</h2>
+  <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+    <div class="form-field">
+      <input
+        #textField="ngModel"
+        class="text-box"
+        [ngModel]="todo.text"
+        name="text"
+        type="text"
+        placeholder="Enter todo text..."
+        required
+        minlength="3"
+      />
+      <ng-container *ngIf="showValidationErrors && textField.invalid">
+        <p *ngIf="!textField.value">Please enter some text for this todo</p>
+        <p *ngIf="textField.errors?.['minlength']">
+          The todo text must be at least 3 characters
+        </p>
+      </ng-container>
+    </div>
+
+    <div class="btn-container">
+      <a class="btn" routerLink="../">Cancel</a>
+      <button
+        type="submit"
+        class="btn align-end"
+        [disabled]="textField.errors?.['minlength'] && showValidationErrors"
+      >
+        Save Todo
+      </button>
+    </div>
+  </form>
+</div>

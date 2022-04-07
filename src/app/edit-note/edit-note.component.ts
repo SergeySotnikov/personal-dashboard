@@ -10,6 +10,7 @@ import { Note } from '../shared/note.model';
   styleUrls: ['./edit-note.component.scss'],
 })
 export class EditNoteComponent implements OnInit {
+  showValidationErrors: boolean = false;
   note: Note | undefined = new Note('', '');
 
   constructor(
@@ -26,6 +27,10 @@ export class EditNoteComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    if (form.invalid) {
+      this.showValidationErrors = true;
+      return;
+    }
     this.noteService.updateNote(this.note?.id, form.value);
     this.router.navigateByUrl('notes');
   }
