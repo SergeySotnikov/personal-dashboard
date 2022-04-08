@@ -4,5 +4,8 @@ export class Bookmark {
   id: string;
   constructor(public name: string, public url: string) {
     this.id = uuidv4();
+    if (!name) {
+      this.name = this.url;
+    }
   }
 }

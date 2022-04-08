@@ -6,8 +6,8 @@ import { Bookmark } from './bookmark.model';
 })
 export class BookmarkService {
   bookmarks: Bookmark[] = [
-    new Bookmark('google', `https://www.google.com/`),
-    new Bookmark('WiKi', `https://www.wikipedia.com/`),
+    new Bookmark('google', `https://www.google.com`),
+    new Bookmark('WiKi', `https://www.wikipedia.com`),
   ];
   bookmark: Bookmark = new Bookmark('', '');
 

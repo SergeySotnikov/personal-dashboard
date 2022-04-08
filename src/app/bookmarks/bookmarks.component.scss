@@ -9,3 +9,9 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+
+.add-btn i {
+  color: rgba($color: white, $alpha: 0.85);
+  margin-right: 5px;
+  margin-left: -4px;
+}
