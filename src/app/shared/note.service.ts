@@ -1,12 +1,32 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
 import { Note } from './note.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NoteService {
+export class NoteService implements OnDestroy {
   notes: Note[] = [];
   note: Note = new Note('', '');
+  storageListenSub: Subscription = new Subscription();
+
+  constructor() {
+    this.loadStateLocalStorage();
+
+    this.storageListenSub = fromEvent(window, 'storage').subscribe(
+      (event: any) => {
+        if (event.key === 'notes') {
+          this.loadStateLocalStorage();
+        }
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    if (this.storageListenSub) {
+      this.storageListenSub.unsubscribe();
+    }
+  }
 
   getNotes() {
     return this.notes;
@@ -23,11 +43,14 @@ export class NoteService {
 
   addNote(note: Note) {
     this.notes.push(note);
+
+    this.saveStateLocalStorage();
   }
 
   updateNote(id: any, updatedFields: Partial<Note>) {
     let note = this.getNote(id);
     Object.assign(note!, updatedFields);
+    this.saveStateLocalStorage();
   }
 
   deleteNote(id: string | undefined) {
@@ -36,7 +59,23 @@ export class NoteService {
       return;
     }
     this.notes.splice(noteIndex, 1);
+    this.saveStateLocalStorage();
   }
+  //save and load data from localStorage
 
-  constructor() {}
+  saveStateLocalStorage() {
+    localStorage.setItem('notes', JSON.stringify(this.notes));
+  }
+  loadStateLocalStorage() {
+    try {
+      const notesInLocalStorage = JSON.parse(
+        localStorage.getItem('notes') || `[]`
+      );
+      this.notes.length = 0;
+      this.notes.push(...notesInLocalStorage);
+    } catch (error) {
+      console.log('There was an error retrieving the notes from localStorage');
+      console.log(error);
+    }
+  }
 }
