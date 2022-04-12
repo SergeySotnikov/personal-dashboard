@@ -66,6 +66,7 @@ export class NoteService implements OnDestroy {
   saveStateLocalStorage() {
     localStorage.setItem('notes', JSON.stringify(this.notes));
   }
+
   loadStateLocalStorage() {
     try {
       const notesInLocalStorage = JSON.parse(
